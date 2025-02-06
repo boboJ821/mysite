@@ -80,7 +80,7 @@ export default function About() {
             {/* 移动端紧凑版本 */}
             <div className="md:hidden">
               <p className="text-base leading-relaxed mb-4">
-                Hello！我是一名具备创意与执行力的运营专家，
+                Hello！我是一名具备创意与执行力的AI探索者，
                 <span className="text-purple-300">擅长以数据驱动创新</span>。
               </p>
               <p className="text-base leading-relaxed">
@@ -94,7 +94,7 @@ export default function About() {
             {/* 桌面端完整版本 */}
             <div className="hidden md:block">
               <p className="text-lg leading-loose tracking-wide mb-6">
-                Hello！我是一名具备创意与执行力的运营专家，
+                Hello！我是一名具备创意与执行力的AI探索者，
                 <span className="text-purple-300">擅长以数据驱动创新</span>，
                 将美学与技术高效融入项目。
               </p>
