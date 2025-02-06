@@ -30,6 +30,7 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
+            <NavLink href="#home" text="首页" />
             <NavLink href="#about" text="关于" />
             <NavLink href="#skills" text="技能" />
             <NavLink href="#experience" text="经历" />
@@ -62,6 +63,7 @@ const Navbar = () => {
             : 'max-h-0 opacity-0 pointer-events-none'
         }`}>
           <div className="px-2 pt-2 pb-3 space-y-1 bg-black/90 rounded-lg">
+            <MobileNavLink href="#home" text="首页" setIsMenuOpen={setIsMenuOpen} />
             <MobileNavLink href="#about" text="关于" setIsMenuOpen={setIsMenuOpen} />
             <MobileNavLink href="#skills" text="技能" setIsMenuOpen={setIsMenuOpen} />
             <MobileNavLink href="#experience" text="经历" setIsMenuOpen={setIsMenuOpen} />
