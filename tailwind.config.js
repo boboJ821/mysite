@@ -11,7 +11,15 @@ export default {
         'secondary': '#9336B4',
         'accent': '#FF26B9',
         'neutral': '#F2F2F2',
-      }
+        purple: {
+          400: '#9F7AEA',
+          500: '#805AD5',
+        },
+      },
+      transitionProperty: {
+        'height': 'height',
+        'spacing': 'margin, padding',
+      },
     },
   },
   plugins: [],
