@@ -30,7 +30,7 @@ export default function Contact() {
           setActiveTooltip("wechat");
           setTimeout(() => setActiveTooltip(null), 2000);
           setTimeout(() => {
-            window.location.href = "weixin://";
+            window.location.href = "weixin://dl/search?q=Felix_x131";
           }, 300);
         } catch (err) {
           console.error("复制失败:", err);
