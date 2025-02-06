@@ -24,7 +24,18 @@ export default function Contact() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
         </svg>
       ),
-      action: () => window.location.href = "weixin://"
+      action: async () => {
+        try {
+          await navigator.clipboard.writeText("Felix_x131");
+          setActiveTooltip("wechat");
+          setTimeout(() => setActiveTooltip(null), 2000);
+          setTimeout(() => {
+            window.location.href = "weixin://";
+          }, 300);
+        } catch (err) {
+          console.error("复制失败:", err);
+        }
+      }
     },
     {
       title: "邮箱",
@@ -98,7 +109,7 @@ export default function Contact() {
               </div>
 
               {/* 复制成功提示 */}
-              {activeTooltip === index && !contact.action && (
+              {(activeTooltip === index || activeTooltip === "wechat") && !contact.action && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
