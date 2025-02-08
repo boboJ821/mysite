@@ -14,7 +14,7 @@ function App() {
   useVisitTracker();
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/">
       <Routes>
         <Route path="/" element={
           <main className="w-full min-h-screen relative">
