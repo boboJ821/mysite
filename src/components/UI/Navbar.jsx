@@ -37,7 +37,7 @@ const Navbar = () => {
             <NavLink href="#experience" text="经历" />
             <NavLink href="#contact" text="联系" />
             <a
-              href="/admin"
+              href="/#/admin"
               className="text-white hover:text-purple-400 px-3 py-2 text-sm font-medium relative group"
               target="_blank"
               rel="noopener noreferrer"
@@ -79,7 +79,7 @@ const Navbar = () => {
             <MobileNavLink href="#experience" text="经历" setIsMenuOpen={setIsMenuOpen} />
             <MobileNavLink href="#contact" text="联系" setIsMenuOpen={setIsMenuOpen} />
             <a
-              href="/admin"
+              href="/#/admin"
               className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-purple-500/20 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
