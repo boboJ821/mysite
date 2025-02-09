@@ -116,25 +116,6 @@ const Dashboard = () => {
     }
   };
 
-  // 添加统计信息计算
-  const stats = {
-    total: filteredData.length,
-    today: filteredData.filter(visit => {
-      const visitDate = new Date(visit.timestamp);
-      return visitDate.toDateString() === new Date().toDateString();
-    }).length,
-    week: filteredData.filter(visit => {
-      const visitDate = new Date(visit.timestamp);
-      const weekAgo = new Date(new Date() - 7 * 24 * 60 * 60 * 1000);
-      return visitDate >= weekAgo;
-    }).length,
-    month: filteredData.filter(visit => {
-      const visitDate = new Date(visit.timestamp);
-      const monthAgo = new Date(new Date().setMonth(new Date().getMonth() - 1));
-      return visitDate >= monthAgo;
-    }).length,
-  };
-
   if (!isAuthenticated) {
     return <Login onLogin={() => setIsAuthenticated(true)} />;
   }
@@ -160,26 +141,6 @@ const Dashboard = () => {
               >
                 退出登录
               </button>
-            </div>
-
-            {/* 添加统计卡片 */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-              <div className="bg-white/10 rounded-lg p-4">
-                <h3 className="text-white/60 text-sm">总访问量</h3>
-                <p className="text-2xl font-bold text-white">{stats.total}</p>
-              </div>
-              <div className="bg-white/10 rounded-lg p-4">
-                <h3 className="text-white/60 text-sm">今日访问</h3>
-                <p className="text-2xl font-bold text-white">{stats.today}</p>
-              </div>
-              <div className="bg-white/10 rounded-lg p-4">
-                <h3 className="text-white/60 text-sm">本周访问</h3>
-                <p className="text-2xl font-bold text-white">{stats.week}</p>
-              </div>
-              <div className="bg-white/10 rounded-lg p-4">
-                <h3 className="text-white/60 text-sm">本月访问</h3>
-                <p className="text-2xl font-bold text-white">{stats.month}</p>
-              </div>
             </div>
 
             {/* 图表区域 */}

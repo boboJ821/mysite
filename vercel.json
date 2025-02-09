@@ -21,12 +21,8 @@
       "dest": "/index.html"
     }
   ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ],
   "env": {
     "SUPABASE_URL": "@supabase_url",
-    "SUPABASE_ANON_KEY": "@supabase_anon_key",
-    "VITE_ADMIN_PASSWORD": "@vite_admin_password"
+    "SUPABASE_ANON_KEY": "@supabase_anon_key"
   }
 } 

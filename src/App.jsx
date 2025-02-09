@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Scene from './components/Background/Scene'
 import Navbar from './components/UI/Navbar'
 import Hero from './components/Sections/Hero'
@@ -14,7 +14,7 @@ function App() {
   useVisitTracker();
 
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={
           <main className="w-full min-h-screen relative">
@@ -32,7 +32,7 @@ function App() {
         } />
         <Route path="/admin" element={<Dashboard />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   )
 }
 
