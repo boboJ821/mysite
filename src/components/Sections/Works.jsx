@@ -3,16 +3,16 @@ import * as THREE from 'three';
 import gsap from 'gsap';
 
 // 直接导入图片
-import work1 from '@/assets/works/work1.JPG';
-import work2 from '@/assets/works/work2.JPG';
-import work3 from '@/assets/works/work3.JPG';
-import work4 from '@/assets/works/work4.JPG';
-import work5 from '@/assets/works/work5.JPG';
-import work6 from '@/assets/works/work6.JPG';
-import work7 from '@/assets/works/work7.JPG';
-import work8 from '@/assets/works/work8.JPG';
-import work9 from '@/assets/works/work9.JPG';
-import work10 from '@/assets/works/work10.JPG';
+import work1 from '@/assets/works/work1.jpg';
+import work2 from '@/assets/works/work2.jpg';
+import work3 from '@/assets/works/work3.jpg';
+import work4 from '@/assets/works/work4.jpg';
+import work5 from '@/assets/works/work5.jpg';
+import work6 from '@/assets/works/work6.jpg';
+import work7 from '@/assets/works/work7.jpg';
+import work8 from '@/assets/works/work8.jpg';
+import work9 from '@/assets/works/work9.jpg';
+import work10 from '@/assets/works/work10.jpg';
 
 // 图片数组
 const workImages = [work1, work2, work3, work4, work5, work6, work7, work8, work9, work10];
