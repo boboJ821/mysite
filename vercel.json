@@ -17,6 +17,5 @@
       "dest": "/index.html"
     }
   ],
-  "installCommand": "npm install",
-  "rootDirectory": "."
+  "installCommand": "npm install"
 } 
