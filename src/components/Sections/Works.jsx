@@ -2,20 +2,15 @@ import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import gsap from 'gsap';
 
-// 直接导入图片
-import work1 from '@/assets/works/work1.JPG';
-import work2 from '@/assets/works/work2.JPG';
-import work3 from '@/assets/works/work3.JPG';
-import work4 from '@/assets/works/work4.JPG';
-import work5 from '@/assets/works/work5.JPG';
-import work6 from '@/assets/works/work6.JPG';
-import work7 from '@/assets/works/work7.JPG';
-import work8 from '@/assets/works/work8.JPG';
-import work9 from '@/assets/works/work9.JPG';
-import work10 from '@/assets/works/work10.JPG';
-
-// 图片数组
-const workImages = [work1, work2, work3, work4, work5, work6, work7, work8, work9, work10];
+// 动态导入图片
+const workImages = Array.from({ length: 10 }, (_, i) => {
+  try {
+    return new URL(`../../assets/works/work${i + 1}.jpg`, import.meta.url).href;
+  } catch (error) {
+    console.error(`Error loading image work${i + 1}.jpg:`, error);
+    return null;
+  }
+}).filter(Boolean);
 
 const Works = () => {
   const containerRef = useRef();
@@ -31,6 +26,9 @@ const Works = () => {
   const [selectedWork, setSelectedWork] = useState(null);
   
   useEffect(() => {
+    console.log('Works component mounted');
+    console.log('Available images:', workImages);
+    
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ 
@@ -48,6 +46,7 @@ const Works = () => {
 
     // 创建平面组
     const createPlanes = () => {
+      console.log('Creating planes with images:', workImages);
       const group = new THREE.Group();
       
       // 根据屏幕宽度调整平面尺寸
@@ -120,8 +119,12 @@ const Works = () => {
       return group;
     };
 
-    groupRef.current = createPlanes();
-    scene.add(groupRef.current);
+    try {
+      groupRef.current = createPlanes();
+      scene.add(groupRef.current);
+    } catch (error) {
+      console.error('Error creating planes:', error);
+    }
     
     // 调整相机位置
     const isMobile = window.innerWidth < 768;
@@ -317,6 +320,7 @@ const Works = () => {
       id="works" 
       ref={sectionRef}
       className={`relative ${isScrollComplete ? 'h-screen' : 'h-[200vh]'}`}
+      style={{ zIndex: 1 }}
     >
       <div className={`${
         isScrollComplete ? 'relative' : 'sticky'
@@ -324,7 +328,7 @@ const Works = () => {
         <div 
           className="absolute inset-0" 
           ref={containerRef}
-          style={{ touchAction: 'none' }} // 防止触摸事件触发页面滚动
+          style={{ touchAction: 'none' }}
         ></div>
         <div className="relative z-10 container mx-auto px-4">
           <h2 className="text-4xl font-bold text-white mb-8 pt-20">作品展示</h2>
