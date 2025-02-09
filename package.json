@@ -28,9 +28,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp api/* dist/api/",
+    "build": "vite build",
     "preview": "vite preview",
-    "server": "node server/index.js",
     "vercel-build": "vite build"
   }
 }
