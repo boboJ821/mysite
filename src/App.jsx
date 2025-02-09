@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Scene from './components/Background/Scene'
 import Navbar from './components/UI/Navbar'
 import Hero from './components/Sections/Hero'
@@ -31,6 +31,7 @@ function App() {
           </main>
         } />
         <Route path="/admin" element={<Dashboard />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   )

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 const API_URL = import.meta.env.PROD 
-  ? 'https://bbx821.top/api'  // 生产环境使用相对路径
+  ? '/api'  // 修改这里，使用相对路径
   : 'http://localhost:3000/api'; // 开发环境
 
 export const useVisitTracker = () => {

@@ -6,6 +6,11 @@ const supabase = createClient(
 );
 
 export default async function handler(req, res) {
+  // 添加缓存控制头
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+
   // 设置 CORS
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', 'https://bbx821.top');

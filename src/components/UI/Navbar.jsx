@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useSmoothScroll } from '../../hooks/useSmoothScroll'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,6 +37,12 @@ const Navbar = () => {
             <NavLink href="#works" text="作品" />
             <NavLink href="#experience" text="经历" />
             <NavLink href="#contact" text="联系" />
+            <Link 
+              to="/admin" 
+              className="text-white hover:text-purple-400 px-3 py-2 text-sm font-medium"
+            >
+              管理后台
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
