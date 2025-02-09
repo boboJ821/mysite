@@ -33,16 +33,10 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8">
             <NavLink href="#home" text="首页" />
             <NavLink href="#about" text="关于" />
-            <NavLink href="#skills" text="技能" />
-            <NavLink href="#works" text="作品" />
             <NavLink href="#experience" text="经历" />
+            <NavLink href="#works" text="作品" />
+            <NavLink href="#skills" text="技能" />
             <NavLink href="#contact" text="联系" />
-            <Link 
-              to="/admin" 
-              className="text-white hover:text-purple-400 px-3 py-2 text-sm font-medium"
-            >
-              管理后台
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -73,9 +67,9 @@ const Navbar = () => {
           <div className="px-2 pt-2 pb-3 space-y-1 bg-black/90 rounded-lg">
             <MobileNavLink href="#home" text="首页" setIsMenuOpen={setIsMenuOpen} />
             <MobileNavLink href="#about" text="关于" setIsMenuOpen={setIsMenuOpen} />
-            <MobileNavLink href="#skills" text="技能" setIsMenuOpen={setIsMenuOpen} />
-            <MobileNavLink href="#works" text="作品" setIsMenuOpen={setIsMenuOpen} />
             <MobileNavLink href="#experience" text="经历" setIsMenuOpen={setIsMenuOpen} />
+            <MobileNavLink href="#works" text="作品" setIsMenuOpen={setIsMenuOpen} />
+            <MobileNavLink href="#skills" text="技能" setIsMenuOpen={setIsMenuOpen} />
             <MobileNavLink href="#contact" text="联系" setIsMenuOpen={setIsMenuOpen} />
           </div>
         </div>
