@@ -2,20 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import gsap from 'gsap';
 
-// 直接导入图片
-import work1 from '@/assets/works/work1.jpg';
-import work2 from '@/assets/works/work2.jpg';
-import work3 from '@/assets/works/work3.jpg';
-import work4 from '@/assets/works/work4.jpg';
-import work5 from '@/assets/works/work5.jpg';
-import work6 from '@/assets/works/work6.jpg';
-import work7 from '@/assets/works/work7.jpg';
-import work8 from '@/assets/works/work8.jpg';
-import work9 from '@/assets/works/work9.jpg';
-import work10 from '@/assets/works/work10.jpg';
+// 使用动态导入
+const workImages = import.meta.glob('@/assets/works/*.jpg', {
+  eager: true,
+  import: 'default'
+});
 
-// 图片数组
-const workImages = [work1, work2, work3, work4, work5, work6, work7, work8, work9, work10];
+// 转换为数组
+const workImagesArray = Object.values(workImages);
 
 const Works = () => {
   const containerRef = useRef();
@@ -65,13 +59,13 @@ const Works = () => {
 
       // 调整圆柱体参数
       const radius = isMobile ? 4 : 8; // 移动端减小半径
-      const totalPlanes = workImages.length;
+      const totalPlanes = workImagesArray.length;
       const angleOffset = (2 * Math.PI) / totalPlanes;
 
       const textureLoader = new THREE.TextureLoader();
       
       // 创建平面
-      workImages.forEach((imagePath, i) => {
+      workImagesArray.forEach((imagePath, i) => {
         const texture = textureLoader.load(imagePath);
         texture.wrapS = THREE.RepeatWrapping;
         texture.wrapT = THREE.RepeatWrapping;
@@ -349,7 +343,7 @@ const Works = () => {
                 </svg>
               </button>
               <img 
-                src={workImages[selectedWork]} 
+                src={workImagesArray[selectedWork]} 
                 alt={`Work ${selectedWork + 1}`}
                 className="w-full h-auto rounded-lg mb-4"
               />
