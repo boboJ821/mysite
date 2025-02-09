@@ -16,5 +16,7 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ]
+  ],
+  "installCommand": "npm install",
+  "rootDirectory": "."
 } 
