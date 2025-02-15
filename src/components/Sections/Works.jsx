@@ -321,7 +321,7 @@ const Works = () => {
           style={{ touchAction: 'none' }} // 防止触摸事件触发页面滚动
         ></div>
         <div className="relative z-10 container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-white mb-8 pt-20">作品展示</h2>
+          <h2 className="text-4xl font-bold text-white mb-8 pt-20">作品展示（开发中...）</h2>
         </div>
 
         {/* 作品详情弹窗 */}
