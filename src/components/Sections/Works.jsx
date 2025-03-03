@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import gsap from 'gsap';
+import { projects } from '@/data/projects';
 
 // 使用动态导入
 const workImages = import.meta.glob('@/assets/works/*.jpg', {
@@ -59,14 +60,14 @@ const Works = () => {
 
       // 调整圆柱体参数
       const radius = isMobile ? 4 : 8; // 移动端减小半径
-      const totalPlanes = workImagesArray.length;
+      const totalPlanes = projects.length;
       const angleOffset = (2 * Math.PI) / totalPlanes;
 
       const textureLoader = new THREE.TextureLoader();
       
       // 创建平面
-      workImagesArray.forEach((imagePath, i) => {
-        const texture = textureLoader.load(imagePath);
+      projects.forEach((project, i) => {
+        const texture = textureLoader.load(project.images[0]);
         texture.wrapS = THREE.RepeatWrapping;
         texture.wrapT = THREE.RepeatWrapping;
         
@@ -243,7 +244,7 @@ const Works = () => {
 
     // 处理点击事件
     const handleClick = (event) => {
-      if (isDragging.current) return; // 如果正在拖动则不处理点击
+      if (isDragging.current) return;
 
       // 计算鼠标位置
       const rect = containerRef.current.getBoundingClientRect();
@@ -260,18 +261,8 @@ const Works = () => {
         const clickedMesh = intersects[0].object;
         const workIndex = groupRef.current.children.indexOf(clickedMesh);
         
-        // 点击动画效果
-        gsap.to(clickedMesh.scale, {
-          x: 1.1,
-          y: 1.1,
-          duration: 0.2,
-          yoyo: true,
-          repeat: 1,
-          ease: 'power2.out',
-          onComplete: () => {
-            setSelectedWork(workIndex);
-          }
-        });
+        // 导航到项目详情页
+        window.location.href = `/works/${workIndex + 1}`;
       }
     };
 

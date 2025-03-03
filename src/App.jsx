@@ -9,6 +9,7 @@ import Contact from './components/Sections/Contact'
 import Works from './components/Sections/Works'
 import { useVisitTracker } from './hooks/useVisitTracker'
 import Dashboard from './components/Admin/Dashboard'
+import ProjectDetail from './components/Works/ProjectDetail'
 
 function App() {
   useVisitTracker();
@@ -30,6 +31,7 @@ function App() {
             </div>
           </main>
         } />
+        <Route path="/works/:id" element={<ProjectDetail />} />
         <Route path="/admin" element={<Dashboard />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
